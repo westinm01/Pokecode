@@ -6,15 +6,19 @@ using namespace std;
 
 class Pokemon{
     int currentHP;
+    bool isFainted;
     int baseStats[6];//0 HP, 1 ATK, 2 DEF, 3 SPATK, 4 SPDEF, 5 SPEED
     int EVStats[6];
     int IVStats[6];
+    int level;
     string name;
+    string nickName;
     int baseFriendship;
     int happiness;
     double height;
     double weight;
 
+    int gender;
     int nature;//enum
     int shape;//enum
     int color;//enum
@@ -34,7 +38,9 @@ class Pokemon{
         Pokemon(string n);
         void setName(string newName);
         string getName();
-        
+        string getNickName();
+        void setNickName(string s);
+
         int getBaseStat(int index);
         void setIVStat(int index, int val);
         int getIVStat(int index);
@@ -43,7 +49,8 @@ class Pokemon{
 
         void setCurrentHP(int newHP);
         int getCurrentHP();
-
+        int getLevel();
+        
     //vector<Move> moves;
     //vector<Move> learnableMoves;
     //Ability ability1;

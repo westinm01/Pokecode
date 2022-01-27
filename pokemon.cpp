@@ -5,12 +5,15 @@ Pokemon::Pokemon(){
 }
 Pokemon::Pokemon(string n){
     this->name=n;
+    this->nickName=name;
     for(int i=0;i<6;i++){
         baseStats[i]=1;
         EVStats[i]=0;
         IVStats[i]=0;
     }
+    level=1;
     currentHP=baseStats[0];
+    isFainted=false;
     baseFriendship=0;
     happiness=baseFriendship;
     height=1;
@@ -36,6 +39,14 @@ Pokemon::Pokemon(string n){
 void Pokemon::setName(string newName){
     name=newName;
 }
+string Pokemon::getNickName(){
+    return nickName;
+}
+
+void Pokemon::setNickName(string s){
+    nickName=s;
+}
+
 string Pokemon::getName(){
     return name;
 }
@@ -56,8 +67,15 @@ int Pokemon::getEVStat(int index){
 }
 
 void Pokemon::setCurrentHP(int newHP){
+    if(newHP<=0){
+        currentHP=0;
+        isFainted=true;
+    }
     currentHP=newHP;
 }
 int  Pokemon::getCurrentHP(){
     return currentHP;
+}
+int Pokemon::getLevel(){
+    return level;
 }
