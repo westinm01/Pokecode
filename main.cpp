@@ -2,6 +2,7 @@
 #include "pokemon.h"
 #include "party.h"
 #include "box.h"
+#include "pc.h"
 using namespace std;
 
 void test1(){
@@ -56,7 +57,24 @@ void test2(){
     box1->output();
 
 }
+
+void test3(){
+    PC* someonesPC = new PC();
+    //32 empty boxes!
+    someonesPC->selectBox(22);
+    Box * ptr = someonesPC->getCurrBox();
+    Pokemon * cyndaquil = new Pokemon("Cyndaquil");
+    Pokemon * oshawott=new Pokemon("Oshawott");
+    Pokemon * pikachu=new Pokemon("Pikachu");
+    ptr->storePokemon(cyndaquil,0,0);
+    ptr->storePokemon(oshawott,3,4);
+    someonesPC->selectBox(40);
+    someonesPC->selectBox(5);
+    someonesPC->getCurrBox()->storePokemon(pikachu,4,5);
+    someonesPC->output();
+    
+}
 int main(){
-    test2();
+    test3();
     return 0;
 }

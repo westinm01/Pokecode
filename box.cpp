@@ -7,6 +7,8 @@ Box::Box(){
             grid[i][j]=nullptr;
         }
     }
+    name="box";
+    empty=true;
 }
 
 void Box::output(){
@@ -21,7 +23,7 @@ void Box::output(){
 }
 
 void Box::storePokemon(Pokemon * p, int x, int y){
-    if(x>4 || y>5){
+    if(x>4 || y>5 || x<0 || y<0){
         cout<<"storePokemon: Index out of bounds"<<endl;
         return;
     }
@@ -30,5 +32,17 @@ void Box::storePokemon(Pokemon * p, int x, int y){
     }
     else{
         grid[x][y]=p;
+        empty=false;
     }
+}
+
+void Box::setName(string s){
+    name=s;
+}
+string Box::getName(){
+    return name;
+}
+
+bool Box::isEmpty(){
+    return empty;
 }
