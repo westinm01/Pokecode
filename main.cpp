@@ -1,6 +1,7 @@
 #include <iostream>
 #include "pokemon.h"
 #include "party.h"
+#include "box.h"
 using namespace std;
 
 void test1(){
@@ -44,7 +45,18 @@ void test1(){
     party->outputParty();
 }
 
+void test2(){
+    Pokemon * cyndaquil = new Pokemon("Cyndaquil");
+    Pokemon * oshawott=new Pokemon("Oshawott");
+    Pokemon * pikachu=new Pokemon("Pikachu");
+    Box* box1=new Box();
+    box1->storePokemon(cyndaquil,0,0);
+    box1->storePokemon(oshawott,3,4);
+    box1->storePokemon(pikachu,4,5);
+    box1->output();
+
+}
 int main(){
-    test1();
+    test2();
     return 0;
 }
